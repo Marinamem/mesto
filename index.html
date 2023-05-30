@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./style.css" rel="stylesheet" />
+    <title>Mesto</title>
+  </head>
+  <body class="page">
+    <header class="header">
+      <img class="header__logo" alt="логотип" src="./images/logo.svg" />
+    </header>
+    <main class="content">
+      <section class="profile">
+        <img
+          class="profile__avatar"
+          src="./images/avatar.jpg"
+          alt="Жак-Ив-Куско"
+        />
+        <div class="profile__info">
+          <p class="profile__info-name">Жак-Ив Кусто</p>
+          <button class="profile__edit-button"></button>
+          <p class="profile__info-job">Исследователь океана</p>
+        </div>
+        <button class="profile__add-button"></button>
+      </section>
+      <section class="elements">
+        <div class="element">
+          <img
+            class="element__image"
+            src="images/kirill-pershin-1088404-unsplashkar.png"
+            alt="Карачаевск"
+          />
+          <p class="element__title">Карачаевск</p>
+          <img src="images/Group.svg" alt="лайк" class="element__like" />
+        </div>
+        <div class="element">
+          <img
+            class="element__image"
+            src="images/kirill-pershin-1404681-unsplashelbrus.png"
+            alt="Гора Эльбрус"
+          />
+          <p class="element__title">Гора Эльбрус</p>
+          <img src="images/Group.svg" alt="лайк" class="element__like" />
+        </div>
+        <div class="element">
+          <img
+            class="element__image"
+            src="images/kirill-pershin-1556355-unsplashdombai.png"
+            alt="Карачаевск"
+          />
+          <p class="element__title">Домбай</p>
+          <img src="images/Group.svg" alt="лайк" class="element__like" />
+        </div>
+        <div class="element">
+          <img
+            class="element__image"
+            src="images/kirill-pershin-1404681-unsplashelbrus.png"
+            alt="Гора Эльбрус"
+          />
+          <p class="element__title">Гора Эльбрус</p>
+          <img src="images/Group.svg" alt="лайк" class="element__like" />
+        </div>
+        <div class="element">
+          <img
+            class="element__image"
+            src="images/kirill-pershin-1556355-unsplashdombai.png"
+            alt="Домбай"
+          />
+          <p class="element__title">Домбай</p>
+          <img src="images/Group.svg" alt="лайк" class="element__like" />
+        </div>
+        <div class="element">
+          <img
+            class="element__image"
+            src="images/kirill-pershin-1088404-unsplashkar.png"
+            alt="Карачаево-Черкесск"
+          />
+          <p class="element__title">Карачаево-Черкесск</p>
+          <img src="images/Group.svg" alt="лайк" class="element__like" />
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__description">© 2023 Mesto Russia</p>
+    </footer>
+    <section class="popup popup_opened">
+      <div class="popup__container">
+        <p class="popup__container-title">Редактировать профиль</p>
+        <p>
+          <input
+            class="popup__name-info"
+            name="username"
+            type="text"
+            value="Жак-Ив Куско"
+          />
+        </p>
+        <p>
+          <input
+            class="popup__job-info"
+            name="job"
+            type="text"
+            value="Исследователь океана"
+          />
+        </p>
+        <button class="popup__save-button">Сохранить</button>
+      </div>
+    </section>
+  </body>
+</html>

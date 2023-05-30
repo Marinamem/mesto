@@ -1,0 +1,248 @@
+@import url(./vendor/fonts.css);
+.page {
+  background-color: #000000;
+  padding-top: 45px;
+  max-width: 1280px;
+  min-width: 320px;
+  margin: 0 auto;
+}
+@media (max-width: 480px) {
+  .page {
+    padding-top: 28px;
+  }
+}
+.content {
+  max-width: 880px;
+  margin: 0 auto;
+}
+@media (max-width: 780px) {
+  .content {
+    max-width: 400px;
+  }
+}
+@media (max-width: 480px) {
+  .content {
+    max-width: 282px;
+  }
+}
+.header {
+  display: flex;
+  width: calc(100% - 2 * 200px);
+  margin: 0 auto;
+  justify-content: space-between;
+  padding: 0;
+  border-bottom: 1px solid rgba(84, 84, 84, 1);
+}
+
+@media (max-width: 992px) {
+  .header {
+    width: calc(100% - 2 * 100px);
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    width: 100%;
+  }
+}
+.header__logo {
+  max-width: 142px;
+  max-height: 33px;
+  margin-bottom: 41px;
+}
+
+@media (max-width: 480px) {
+  .header__logo {
+    max-width: 103.74px;
+    height: 24.4px;
+    width: 103.74px;
+    margin-left: 27px;
+  }
+}
+.profile {
+  margin-top: 40px;
+  max-width: 880px;
+  display: flex;
+}
+@media (max-width: 800px) {
+  .profile {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-bottom: 36px;
+  }
+}
+.profile__avatar {
+  height: 120px;
+  width: 120px;
+  border-radius: 100%;
+  margin-right: 26.25px;
+}
+@media (max-width: 800px) {
+  .profile__avatar {
+    margin: 0 auto;
+    margin-bottom: 26px;
+  }
+}
+.profile__info {
+  width: 336px;
+  height: 73px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.profile__info-name {
+  font-family: "Inter", Arial, sans-serif;
+  color: #ffffff;
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 48px;
+  padding: 0;
+  margin: 0;
+}
+@media (max-width: 800px) {
+  .profile__info-name {
+    margin: 0 auto;
+  }
+}
+.profile__edit-button {
+  height: 24px;
+  width: 24px;
+  background-color: black;
+  background-image: url(images/Edit\ Button.svg);
+  border: 1px solid white;
+  padding: 0;
+  margin: auto 0 auto 18px;
+}
+.profile__info-job {
+  font-family: "Inter", Arial, sans-serif;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.78px;
+}
+@media (max-width: 800px) {
+  .profile__info-job {
+    margin: 0 auto;
+    margin-top: 14px;
+  }
+}
+.profile__add-button {
+  height: 50px;
+  width: 150px;
+  background-image: url(images/Add\ Button.png);
+  background-color: #000000;
+  border: 2px solid white;
+  margin: auto 0 auto 244px;
+}
+@media (max-width: 800px) {
+  .profile__add-button {
+    margin: 0 auto;
+    margin-top: 36px;
+  }
+}
+.elements {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+  gap: 17px;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 0;
+}
+
+.element {
+  background-color: white;
+  border-radius: 10px;
+  padding: 0;
+  margin: 0;
+  height: 362px;
+  width: 282px;
+}
+.element:nth-of-type(4) {
+  margin-top: 20px;
+}
+.element:nth-of-type(5) {
+  margin-top: 20px;
+}
+.element:nth-of-type(6) {
+  margin-top: 20px;
+}
+
+@media (max-width: 780px) {
+  .element {
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  .element:nth-of-type(1) {
+    margin-top: 0;
+  }
+}
+
+.element__image {
+  height: 282px;
+  width: 282px;
+  border-radius: 10px 10px 0px 0px;
+}
+.element__title {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 900;
+  margin-left: 21px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.element__like {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+}
+.element__like:hover {
+}
+.element__like-active {
+}
+.footer {
+  width: 318px;
+  margin: 66px auto 60px 200px;
+}
+@media (max-width: 1024px) {
+  .footer {
+    width: 318px;
+    margin: 66px auto 60px 50px;
+  }
+}
+@media (max-width: 480px) {
+  .footer {
+    margin: 0 auto;
+    margin-top: 48px;
+    width: 282px;
+  }
+}
+.footer__description {
+  color: #545454;
+}
+.popup {
+  display: none;
+}
+.popup_opened {
+  display: block;
+}
+.popup__container {
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 430px;
+  height: 330px;
+  overflow: auto;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+.popup__save-button {
+  background-image: url(./images/Submit\ Button.png);
+  color: white;
+}
