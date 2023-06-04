@@ -1,6 +1,5 @@
 .popup__job-info {
   font-family: "Inter", Arial, sans-serif;
-  border-bottom: none;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
