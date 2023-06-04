@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./style.css" rel="stylesheet" />
+    
     <title>Mesto</title>
   </head>
   <body class="page">
@@ -32,8 +33,10 @@
             src="images/kirill-pershin-1088404-unsplashkar.png"
             alt="Карачаевск"
           />
-          <p class="element__title">Карачаевск</p>
-          <img src="images/Group.svg" alt="лайк" class="element__like" />
+          <div class="element__sector">
+            <p class="element__title">Карачаевск</p>
+            <button class="element__like"></button>
+          </div>
         </div>
         <div class="element">
           <img
@@ -41,8 +44,10 @@
             src="images/kirill-pershin-1404681-unsplashelbrus.png"
             alt="Гора Эльбрус"
           />
-          <p class="element__title">Гора Эльбрус</p>
-          <img src="images/Group.svg" alt="лайк" class="element__like" />
+          <div class="element__sector">
+            <p class="element__title">Гора Эльбрус</p>
+            <button class="element__like"></button>
+          </div>
         </div>
         <div class="element">
           <img
@@ -50,8 +55,10 @@
             src="images/kirill-pershin-1556355-unsplashdombai.png"
             alt="Карачаевск"
           />
-          <p class="element__title">Домбай</p>
-          <img src="images/Group.svg" alt="лайк" class="element__like" />
+          <div class="element__sector">
+            <p class="element__title">Домбай</p>
+            <button class="element__like"></button>
+          </div>
         </div>
         <div class="element">
           <img
@@ -59,8 +66,10 @@
             src="images/kirill-pershin-1404681-unsplashelbrus.png"
             alt="Гора Эльбрус"
           />
-          <p class="element__title">Гора Эльбрус</p>
-          <img src="images/Group.svg" alt="лайк" class="element__like" />
+          <div class="element__sector">
+            <p class="element__title">Гора Эльбрус</p>
+            <button class="element__like"></button>
+          </div>
         </div>
         <div class="element">
           <img
@@ -68,8 +77,10 @@
             src="images/kirill-pershin-1556355-unsplashdombai.png"
             alt="Домбай"
           />
-          <p class="element__title">Домбай</p>
-          <img src="images/Group.svg" alt="лайк" class="element__like" />
+          <div class="element__sector">
+            <p class="element__title">Домбай</p>
+            <button class="element__like"></button>
+          </div>
         </div>
         <div class="element">
           <img
@@ -77,35 +88,28 @@
             src="images/kirill-pershin-1088404-unsplashkar.png"
             alt="Карачаево-Черкесск"
           />
-          <p class="element__title">Карачаево-Черкесск</p>
-          <img src="images/Group.svg" alt="лайк" class="element__like" />
+          <div class="element__sector">
+            <p class="element__title">Карачаево-Черкесск</p>
+            <button class="element__like"></button>
+          </div>
         </div>
       </section>
     </main>
     <footer class="footer">
       <p class="footer__description">© 2023 Mesto Russia</p>
     </footer>
-    <section class="popup popup_opened">
+    <div class="popup">
       <div class="popup__container">
-        <p class="popup__container-title">Редактировать профиль</p>
-        <p>
-          <input
-            class="popup__name-info"
-            name="username"
-            type="text"
-            value="Жак-Ив Куско"
-          />
-        </p>
-        <p>
-          <input
-            class="popup__job-info"
-            name="job"
-            type="text"
-            value="Исследователь океана"
-          />
-        </p>
-        <button class="popup__save-button">Сохранить</button>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <button class="popup__close-button" type="button"></button>
+        <form class="popup__form popup__form_type_profile">
+        <input type="text" name="username" class="popup__input popup__name-info">
+        <input type="text" name="job" class="popup__input popup__job-info">
+        <button class="popup__save-button" type="sumbit">Сохранить</button>
+      </form>
       </div>
-    </section>
+    </div>
+  </div>
+  <script src="/index.js"></script>
   </body>
 </html>
