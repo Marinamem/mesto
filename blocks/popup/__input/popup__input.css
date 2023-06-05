@@ -1,14 +1,14 @@
-.popup__job-info {
+.popup__input {
   font-family: "Inter", Arial, sans-serif;
+  border: none;
+  border-bottom: 0.2px solid rgba(0, 0, 0, 1);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   width: 358px;
   height: 27px;
   margin: 0 auto;
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 1);
-  margin-bottom: 48px;
+  margin-bottom: 30px;
   padding: 0;
   font-size: 14px;
   font-weight: 400;
@@ -16,9 +16,14 @@
   letter-spacing: 0em;
   text-align: left;
 }
+.popup__input:last-of-type {
+  margin-bottom: 48px;
+}
 @media (max-width: 460px) {
-  .popup__job-info {
+  .popup__input {
     width: 238px;
+  }
+  .popup__input:last-of-type {
     margin-bottom: 45px;
   }
 }

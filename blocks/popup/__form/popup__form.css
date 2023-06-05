@@ -1,4 +1,4 @@
-.popup__form_type_profile {
+.popup__form {
   width: 298px;
   height: 114px;
   margin: 0 auto;
@@ -6,7 +6,7 @@
   padding: 0;
 }
 @media (max-width: 460px) {
-  .popup__form_type_profile {
+  .popup__form {
     width: 238px;
     margin-left: 22px;
     margin-top: 75px;

@@ -1,8 +1,8 @@
 // Находим форму в DOM
 let formElement = document.querySelector(".popup__form"); // Воспользуйтесь методом querySelector()
 // Находим поля формы в DOM
-let nameInput = document.querySelector(".popup__name-info"); // Воспользуйтесь инструментом .querySelector()
-let jobInput = document.querySelector(".popup__job-info"); // Воспользуйтесь инструментом .querySelector()
+let nameInput = document.querySelector(".popup__input_info_name"); // Воспользуйтесь инструментом .querySelector()
+let jobInput = document.querySelector(".popup__input_info_job"); // Воспользуйтесь инструментом .querySelector()
 let editButton = document.querySelector(".profile__edit-button");
 let closeButton = document.querySelector(".popup__close-button");
 let saveButton = document.querySelector(".popup__save-button");
@@ -21,7 +21,6 @@ const closePopup = () => {
 };
 
 editButton.addEventListener("click", openPopup);
-saveButton.addEventListener("click", closePopup);
 closeButton.addEventListener("click", closePopup);
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
@@ -30,5 +29,6 @@ function handleFormSubmit(evt) {
   evt.preventDefault(); //
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
+  closePopup();
 }
 formElement.addEventListener("submit", handleFormSubmit);

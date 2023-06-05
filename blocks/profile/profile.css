@@ -5,7 +5,6 @@
 }
 @media (max-width: 820px) {
   .profile {
-    display: flex;
     flex-flow: column;
     align-items: center;
     margin-bottom: 36px;

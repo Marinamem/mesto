@@ -6,7 +6,11 @@
   height: 362px;
   width: 282px;
 }
-
+@media (max-width: 879px) {
+  .element {
+    margin: 0 auto;
+  }
+}
 @media (max-width: 780px) {
   .element {
     margin: 0 auto;

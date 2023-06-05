@@ -4,10 +4,17 @@
   font-size: 18px;
   font-weight: 400;
   line-height: 21.78px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 @media (max-width: 820px) {
   .profile__info-job {
     margin: 0 auto;
     margin-top: 14px;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: center;
   }
 }
