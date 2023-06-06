@@ -4,7 +4,7 @@
   margin: 0 auto;
   justify-content: space-between;
   padding: 0;
-  border-bottom: 0.7px solid rgba(84, 84, 84, 1);
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
 
 @media (max-width: 992px) {

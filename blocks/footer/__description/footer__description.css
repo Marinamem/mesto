@@ -6,6 +6,8 @@
   letter-spacing: 0em;
   text-align: left;
   color: #545454;
+  padding: 0;
+  margin: 0;
 }
 @media (max-width: 400px) {
   .footer__description {
