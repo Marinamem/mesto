@@ -9,6 +9,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  width: 294px;
 }
 @media (max-width: 820px) {
   .profile__info-name {
@@ -21,5 +22,6 @@
 @media (max-width: 320px) {
   .profile__info-name {
     margin-left: 33px;
+    width: 189px;
   }
 }
