@@ -5,6 +5,7 @@
   margin: 0;
   height: 362px;
   width: 282px;
+  position: relative;
 }
 @media (max-width: 879px) {
   .element {

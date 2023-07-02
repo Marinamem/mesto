@@ -1,4 +1,4 @@
-.elements {
+.elements__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
   gap: 17px;
@@ -7,7 +7,7 @@
   padding: 0;
 }
 @media (max-width: 320px) {
-  .elements {
+  .elements__list {
     margin-top: 0;
     gap: 20px;
   }

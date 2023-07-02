@@ -1,0 +1,18 @@
+.element__delete {
+  background-image: url(../../../images/urna.svg);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  width: 18px;
+  height: 19px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 0;
+  margin: 0;
+}
+.element__delete:hover {
+  opacity: 50%;
+  cursor: pointer;
+}
