@@ -90,7 +90,7 @@ function createCards({ name, link }) {
   return card;
 }
 
-function renderCard(data, container) {
+function renderCard(data, container, position = "prepend") {
   container.prepend(createCards(data));
 }
 
