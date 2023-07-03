@@ -57,7 +57,7 @@ formElementAdd.addEventListener("submit", function (e) {
   e.preventDefault();
   const nameValue = placeNameInput.value;
   const imageValue = placeLinkInput.value;
-  renderCard({ name: nameValue, link: imageValue }, cardsList, "prepend");
+  renderCard({ name: nameValue, link: imageValue }, cardsList);
   formElementAdd.reset();
   closePopup(popupAdd);
 });
@@ -90,7 +90,7 @@ function createCards({ name, link }) {
   return card;
 }
 
-function renderCard(data, container, position = "prepend") {
+function renderCard(data, container) {
   container.prepend(createCards(data));
 }
 
