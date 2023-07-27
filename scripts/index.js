@@ -4,39 +4,10 @@ const formElementEdit = document.querySelector(".popup__form_type_profile"); // 
 const nameInput = document.querySelector(".popup__input_info_name"); // Воспользуйтесь инструментом .querySelector()
 const jobInput = document.querySelector(".popup__input_info_job"); // Воспользуйтесь инструментом .querySelector()
 const editButton = document.querySelector(".profile__edit-button");
-const closeButton = document.querySelector(".popup__close-button");
 const saveButton = document.querySelector(".popup__save-button");
 const popupEdit = document.querySelector(".popup_type_edit");
 const profileName = document.querySelector(".profile__info-name");
 const profileJob = document.querySelector(".profile__info-job");
-
-const openPopup = function (modal) {
-  modal.classList.add("popup_opened");
-};
-
-const closePopup = function (modal) {
-  modal.classList.remove("popup_opened");
-};
-
-editButton.addEventListener("click", function () {
-  openPopup(popupEdit);
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
-  let event = new Event("input");
-  nameInput.dispatchEvent(event);
-  jobInput.dispatchEvent(event);
-});
-popupEdit.addEventListener("click", closeOverlay);
-// Обработчик «отправки» формы, хотя пока
-// она никуда отправляться не будет
-
-function handleFormSubmitPopupEdit(evt) {
-  evt.preventDefault(); //
-  profileName.textContent = nameInput.value;
-  profileJob.textContent = jobInput.value;
-  closePopup(popupEdit);
-}
-formElementEdit.addEventListener("submit", handleFormSubmitPopupEdit);
 
 const formElementAdd = document.querySelector(".popup__form_type_add");
 const placeNameInput = formElementAdd.querySelector(".popup__input_place_name");
@@ -52,12 +23,42 @@ const fullImage = document.querySelector(".popup__picture");
 const fullText = document.querySelector(".popup__text");
 const buttonSubmit = formElementAdd.querySelector(config.submitButtonSelector);
 
+const openPopup = function (modal) {
+  modal.classList.add("popup_opened");
+  document.addEventListener("keydown", handleCloseByEsc);
+};
+
+const closePopup = function (modal) {
+  modal.classList.remove("popup_opened");
+  document.removeEventListener("keydown", handleCloseByEsc);
+};
+
+editButton.addEventListener("click", function () {
+  openPopup(popupEdit);
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileJob.textContent;
+  let event = new Event("input");
+  nameInput.dispatchEvent(event);
+  jobInput.dispatchEvent(event);
+});
+popupEdit.addEventListener("click", handleCloseByClick);
+// Обработчик «отправки» формы, хотя пока
+// она никуда отправляться не будет
+
+function handleFormSubmitPopupEdit(evt) {
+  evt.preventDefault(); //
+  profileName.textContent = nameInput.value;
+  profileJob.textContent = jobInput.value;
+  closePopup(popupEdit);
+}
+formElementEdit.addEventListener("submit", handleFormSubmitPopupEdit);
+
 buttonAdd.addEventListener("click", function () {
   formElementAdd.reset();
-  disabledButton(buttonSubmit, config);
+  disableButton(buttonSubmit, config);
   openPopup(popupAdd);
 });
-popupAdd.addEventListener("click", closeOverlay);
+popupAdd.addEventListener("click", handleCloseByClick);
 
 formElementAdd.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -68,7 +69,7 @@ formElementAdd.addEventListener("submit", function (e) {
   closePopup(popupAdd);
 });
 
-function createCards({ name, link }) {
+function createCard({ name, link }) {
   const card = templateElement.cloneNode(true);
   const textElement = card.querySelector(".element__title");
   const imageElement = card.querySelector(".element__image");
@@ -97,23 +98,29 @@ function createCards({ name, link }) {
 }
 
 function renderCard(data, container) {
-  container.prepend(createCards(data));
+  container.prepend(createCard(data));
 }
 
 initialCards.forEach(function (item) {
   renderCard(item, cardsList);
 });
 
-function closeOverlay(evt) {
+function handleCloseByClick(evt) {
   if (
     evt.currentTarget === evt.target ||
     evt.target.classList.contains("popup__close-button")
   )
     closePopup(evt.currentTarget);
 }
-document.addEventListener("keydown", function (evt) {
+
+function handleCloseByEsc(evt) {
   const popup = document.querySelector(".popup_opened");
   if (evt.key === "Escape") {
     closePopup(popup);
   }
+}
+const popups = Array.from(document.querySelectorAll(".popup"));
+
+popups.forEach((popup) => {
+  popup.addEventListener("click", handleCloseByClick);
 });

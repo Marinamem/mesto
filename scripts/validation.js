@@ -30,7 +30,7 @@ function checkInputValidity(inputElement, formElement, config) {
     hideError(inputElement, errorElement, config);
   }
 }
-function disabledButton(buttonElement, config) {
+function disableButton(buttonElement, config) {
   buttonElement.disabled = true;
   buttonElement.classList.add(config.inactiveButtonClass);
 }
@@ -42,7 +42,7 @@ function enableButton(buttonElement, config) {
 
 function toggleButtonState(buttonElement, isActive, config) {
   if (!isActive) {
-    disabledButton(buttonElement, config);
+    disableButton(buttonElement, config);
   } else {
     enableButton(buttonElement, config);
   }
