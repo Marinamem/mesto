@@ -9,12 +9,12 @@
   height: 27px;
   margin: 0 auto;
   margin-bottom: 30px;
-  padding: 0;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
   letter-spacing: 0em;
   text-align: left;
+  padding: 0;
 }
 .popup__input:last-of-type {
   margin-bottom: 48px;

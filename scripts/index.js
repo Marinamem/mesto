@@ -22,6 +22,9 @@ editButton.addEventListener("click", function () {
   openPopup(popupEdit);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
+  let event = new Event("input");
+  nameInput.dispatchEvent(event);
+  jobInput.dispatchEvent(event);
 });
 popupEdit.addEventListener("click", closeOverlay);
 // Обработчик «отправки» формы, хотя пока
@@ -47,8 +50,11 @@ const popupAdd = document.querySelector(".popup_type_add");
 const popupImage = document.querySelector(".popup_type_open-image");
 const fullImage = document.querySelector(".popup__picture");
 const fullText = document.querySelector(".popup__text");
+const buttonSubmit = formElementAdd.querySelector(config.submitButtonSelector);
 
 buttonAdd.addEventListener("click", function () {
+  formElementAdd.reset();
+  disabledButton(buttonSubmit, config);
   openPopup(popupAdd);
 });
 popupAdd.addEventListener("click", closeOverlay);
@@ -105,5 +111,9 @@ function closeOverlay(evt) {
   )
     closePopup(evt.currentTarget);
 }
-
-popupImage.addEventListener("click", closeOverlay);
+document.addEventListener("keydown", function (evt) {
+  const popup = document.querySelector(".popup_opened");
+  if (evt.key === "Escape") {
+    closePopup(popup);
+  }
+});
