@@ -107,19 +107,36 @@ formElementAdd.addEventListener("submit", function (e) {
 });
 
 function createCard({ name, link }) {
-  const cards = new Card({ name, link }, "#element__card");
-  const cardElement = cards.getView();
+  const cards = templateElement.cloneNode(true);
+  const textElement = cards.querySelector(".element__title");
+  textElement.textContent = name;
+  const imageElement = cards.querySelector(".element__image");
+  imageElement.src = link;
+  imageElement.alt = name;
+  const buttonDelElement = cards.querySelector(".element__delete");
+  buttonDelElement.addEventListener("click", function () {
+    cards.remove();
+  });
+  const buttonLikeElement = cards.querySelector(".element__like");
+  buttonLikeElement.addEventListener("click", function () {
+    buttonLikeElement.classList.toggle("element__like-active");
+  });
+  imageElement.addEventListener("click", function () {
+    openPopup(popupImage);
+    fullImage.src = imageElement.src;
+    fullImage.alt = textElement.textContent;
+    fullText.textContent = textElement.textContent;
+  });
 
-  return cardElement;
+  return cards;
 }
-//Рендер карточек
 function renderCard(data, container) {
   const card = new Card(data.name, data.link, "#element__card");
   container.prepend(createCard(card.getView()));
   console.log(card);
-
   return card;
 }
+
 initialCards.forEach(function (data) {
   renderCard(data, cardsList);
 });
