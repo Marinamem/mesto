@@ -1,3 +1,5 @@
+import { openPopup } from "./index.js";
+
 class Card {
   constructor(name, link, templateSelector) {
     this._name = name;
@@ -28,9 +30,20 @@ class Card {
   }
 
   _handleLikeCard() {
+    const buttonLikeElement = this._newCard.querySelector(".element__like");
     buttonLikeElement.classList.toggle("element__like-active");
   }
-
+  _fullImagePopup() {
+    const textElement = this._newCard.querySelector(".element__title");
+    const popupImage = document.querySelector(".popup_type_open-image");
+    const fullImage = popupImage.querySelector(".popup__picture");
+    const fullText = popupImage.querySelector(".popup__text");
+    const imageElement = this._newCard.querySelector(".element__image");
+    openPopup(popupImage);
+    fullImage.src = imageElement.src;
+    fullImage.alt = textElement.textContent;
+    fullText.textContent = textElement.textContent;
+  }
   _setListeners() {
     const buttonDelElement = this._newCard.querySelector(".element__delete");
     buttonDelElement.addEventListener(
@@ -41,6 +54,8 @@ class Card {
     buttonLikeElement.addEventListener("click", () => {
       this._handleLikeCard();
     });
+    const imageElement = this._newCard.querySelector(".element__image");
+    imageElement.addEventListener("click", this._fullImagePopup.bind(this));
   }
 
   getView() {
