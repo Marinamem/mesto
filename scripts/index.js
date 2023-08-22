@@ -48,7 +48,7 @@ const placeNameInput = formElementAdd.querySelector(".popup__input_place_name");
 const placeLinkInput = formElementAdd.querySelector(".popup__input_place_link");
 const cardsList = document.querySelector(".elements__list");
 const buttonAdd = document.querySelector(".profile__add-button");
-const templateElement = document
+const templateSelector = document
   .querySelector("#element__card")
   .content.querySelector(".element");
 const popupAdd = document.querySelector(".popup_type_add");
@@ -73,7 +73,7 @@ editButton.addEventListener("click", function () {
   openPopup(popupEdit);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
-  let event = new Event("input");
+  const event = new Event("input");
   nameInput.dispatchEvent(event);
   jobInput.dispatchEvent(event);
 });
@@ -95,7 +95,8 @@ formElementEdit.addEventListener("submit", handleFormSubmitPopupEdit);
 //попап добавления
 buttonAdd.addEventListener("click", function () {
   formElementAdd.reset();
-
+  const buttonDisable = new FormValidator(config, formElementAdd);
+  buttonDisable.disableSubmitButton();
   openPopup(popupAdd);
 });
 
@@ -104,14 +105,21 @@ popupAdd.addEventListener("click", handleCloseByClick);
 
 // карточки
 
+function createCard(item) {
+  // тут создаете карточку и возвращаете ее
+  const card = new Card(item.name, item.link, "#element__card");
+  const cardElement = card.getView();
+  return cardElement;
+}
+
 //рендер карточек
 
-function renderCard(data) {
-  const card = new Card(data.name, data.link, "#element__card");
-  cardsList.prepend(card.getView());
+function renderCard(item) {
+  const newCardElement = createCard(item);
+  cardsList.prepend(newCardElement);
 }
-initialCards.forEach(function (data) {
-  renderCard(data, cardsList);
+initialCards.forEach(function (item) {
+  renderCard(item);
 });
 //Функция сохранения данных карточки
 formElementAdd.addEventListener("submit", function (e) {
@@ -133,8 +141,8 @@ function handleCloseByClick(evt) {
 }
 
 function handleCloseByEsc(evt) {
-  const popup = document.querySelector(".popup_opened");
   if (evt.key === "Escape") {
+    const popup = document.querySelector(".popup_opened");
     closePopup(popup);
   }
 }
@@ -149,5 +157,7 @@ addCardValidate.enableValidation();
 
 const profileEditValidate = new FormValidator(config, popupEdit);
 profileEditValidate.enableValidation();
+
+// открытие попапа картинки
 
 export { openPopup };

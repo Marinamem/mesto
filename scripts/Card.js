@@ -5,11 +5,14 @@ class Card {
     this._name = name;
     this._link = link;
     this._templateSelector = templateSelector;
+    this._popupImage = document.querySelector(".popup_type_open-image");
+    this._fullImage = this._popupImage.querySelector(".popup__picture");
+    this._fullText = this._popupImage.querySelector(".popup__text");
   }
 
   _getTemplate() {
     const templateCard = document
-      .querySelector("#element__card")
+      .querySelector(this._templateSelector)
       .content.querySelector(".element")
       .cloneNode(true);
     this._newCard = templateCard;
@@ -17,11 +20,10 @@ class Card {
   }
 
   _setData() {
-    const textElement = this._newCard.querySelector(".element__title");
-    textElement.textContent = this._name;
-    const imageElement = this._newCard.querySelector(".element__image");
-    imageElement.src = this._link;
-    imageElement.alt = this._name;
+    this._textElement.textContent = this._name;
+
+    this._imageElement.src = this._link;
+    this._imageElement.alt = this._name;
   }
 
   _handleDeleteCard() {
@@ -34,15 +36,10 @@ class Card {
     buttonLikeElement.classList.toggle("element__like-active");
   }
   _fullImagePopup() {
-    const textElement = this._newCard.querySelector(".element__title");
-    const popupImage = document.querySelector(".popup_type_open-image");
-    const fullImage = popupImage.querySelector(".popup__picture");
-    const fullText = popupImage.querySelector(".popup__text");
-    const imageElement = this._newCard.querySelector(".element__image");
-    openPopup(popupImage);
-    fullImage.src = imageElement.src;
-    fullImage.alt = textElement.textContent;
-    fullText.textContent = textElement.textContent;
+    openPopup(this._popupImage);
+    this._fullImage.src = this._imageElement.src;
+    this._fullImage.alt = this._textElement.textContent;
+    this._fullText.textContent = this._textElement.textContent;
   }
   _setListeners() {
     const buttonDelElement = this._newCard.querySelector(".element__delete");
@@ -54,12 +51,18 @@ class Card {
     buttonLikeElement.addEventListener("click", () => {
       this._handleLikeCard();
     });
-    const imageElement = this._newCard.querySelector(".element__image");
-    imageElement.addEventListener("click", this._fullImagePopup.bind(this));
+
+    this._imageElement.addEventListener(
+      "click",
+      this._fullImagePopup.bind(this)
+    );
   }
 
   getView() {
     this._newCard = this._getTemplate();
+    this._textElement = this._newCard.querySelector(".element__title");
+    this._textElement.textContent = this._name;
+    this._imageElement = this._newCard.querySelector(".element__image");
     this._setData();
     this._setListeners();
 
