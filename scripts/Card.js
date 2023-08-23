@@ -32,8 +32,7 @@ class Card {
   }
 
   _handleLikeCard() {
-    const buttonLikeElement = this._newCard.querySelector(".element__like");
-    buttonLikeElement.classList.toggle("element__like-active");
+    this._buttonLikeElement.classList.toggle("element__like-active");
   }
   _fullImagePopup() {
     openPopup(this._popupImage);
@@ -47,8 +46,8 @@ class Card {
       "click",
       this._handleDeleteCard.bind(this)
     );
-    const buttonLikeElement = this._newCard.querySelector(".element__like");
-    buttonLikeElement.addEventListener("click", () => {
+
+    this._buttonLikeElement.addEventListener("click", () => {
       this._handleLikeCard();
     });
 
@@ -63,6 +62,7 @@ class Card {
     this._textElement = this._newCard.querySelector(".element__title");
     this._textElement.textContent = this._name;
     this._imageElement = this._newCard.querySelector(".element__image");
+    this._buttonLikeElement = this._newCard.querySelector(".element__like");
     this._setData();
     this._setListeners();
 

@@ -95,8 +95,8 @@ formElementEdit.addEventListener("submit", handleFormSubmitPopupEdit);
 //попап добавления
 buttonAdd.addEventListener("click", function () {
   formElementAdd.reset();
-  const buttonDisable = new FormValidator(config, formElementAdd);
-  buttonDisable.disableSubmitButton();
+
+  addCardValidate.disableSubmitButton();
   openPopup(popupAdd);
 });
 
